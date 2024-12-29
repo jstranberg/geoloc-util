@@ -2,8 +2,12 @@
 
 # Check if API key is provided
 if [ -z "$1" ]; then
+    echo ""
+    echo "######################################################"
     echo "Please provide your OpenWeather API key as an argument"
     echo "Usage: ./setup.sh YOUR_API_KEY"
+    echo "######################################################"
+    echo ""
     exit 1
 fi
 

@@ -10,25 +10,31 @@
     }
   },
   "success": {
-    "location": [
-      {
+    "location": {
+      "data": [
+        {
           "name": "Johnson City",
           "local_names": {
-              "ru": "Джонсон-Сити",
-              "en": "Johnson City"
+            "ru": "Джонсон-Сити",
+            "en": "Johnson City"
           },
           "lat": 36.3134398,
           "lon": -82.3534728,
           "country": "US",
           "state": "Tennessee"
-      }
-  ],
+        }
+      ],
+      "status": 200
+    },
     "zip": {
-      "zip": "10001",
-      "name": "New York",
-      "lat": 40.7484,
-      "lon": -73.9967,
-      "country": "US"
+      "data": {
+        "zip": "10001",
+        "name": "New York",
+        "lat": 40.7484,
+        "lon": -73.9967,
+        "country": "US"
+      },
+      "status": 200
     }
   }
 }

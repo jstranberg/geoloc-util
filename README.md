@@ -28,19 +28,29 @@ This will:
 
 ## Usage
 
-Get weather for a city:
+Get geolocation for a city:
 ```bash
-geoloc-util -l "London,UK"
+geoloc-util -l "New York City,NY"
 ```
 
-Get weather for a ZIP code:
+Get geolocation for a ZIP code:
 ```bash
 geoloc-util -locations "10001"
 ```
 
 ## Development
 
-To run the test suite:
+To run the full test suite:
 ```bash
-npm test
+npm run test
+```
+
+To run the negative validation tests 
+```bash
+npm run test-negative
+```
+
+To run the happy-path tests 
+```bash
+npm run test-happy
 ```
