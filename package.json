@@ -1,0 +1,27 @@
+{
+  "name": "fetch-code",
+  "version": "1.0.0",
+  "description": "Fetch SDET Take Home",
+  "main": "index.js",
+  "scripts": {
+    "app": "node ./app/geoloc-util.js",
+    "test": "mocha ./test/geoloc-util.test.js",
+    "test-negative": "mocha --grep \"Negative\" ./test/geoloc-util.test.js",
+    "test-happy": "mocha --grep \"Positive\" ./test/geoloc-util.test.js"
+  },
+  "bin": {
+    "geoloc-util": "./app/geoloc-util.js"
+  },
+  "author": "John Tranberg",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "chai": "^4.3.7",
+    "dotenv": "^16.4.7",
+    "mocha": "^10.2.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "csv-parse": "^5.6.0"
+  }
+}

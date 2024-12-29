@@ -1,0 +1,34 @@
+{
+  "errors": {
+    "notFound": {
+      "cod": "404",
+      "message": "not found"
+    },
+    "invalidZip": {
+      "cod": "400",
+      "message": "invalid zip code"
+    }
+  },
+  "success": {
+    "location": [
+      {
+          "name": "Johnson City",
+          "local_names": {
+              "ru": "Джонсон-Сити",
+              "en": "Johnson City"
+          },
+          "lat": 36.3134398,
+          "lon": -82.3534728,
+          "country": "US",
+          "state": "Tennessee"
+      }
+  ],
+    "zip": {
+      "zip": "10001",
+      "name": "New York",
+      "lat": 40.7484,
+      "lon": -73.9967,
+      "country": "US"
+    }
+  }
+}
