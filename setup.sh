@@ -70,3 +70,4 @@ echo "OPENWEATHER_API_KEY=$1" > .env
 npm install
 
 echo "Setup complete! Your API key has been saved to .env"
+echo "Run 'npm run test' to validate the setup and run the test suite"

@@ -6,7 +6,7 @@ This utility requires a Mac or Linux machine.
 
 ## Installation
 
-In a terminal, run chmod and the setup script with your OpenWeather API key:
+In a terminal, run chmod and the setup script with your OpenWeather API key (no quotes):
 
 ```bash
 chmod +x setup.sh
@@ -17,6 +17,7 @@ sh setup.sh YOUR_OPENWEATHER_API_KEY
 ```
 
 This will:
+- Install Homebrew (if not already installed)
 - Install Node.js 18 (if not already installed)
 - Install all required dependencies
 - Configure your API key
