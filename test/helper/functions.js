@@ -31,14 +31,7 @@ function executeGeolocUtil(value) {
     return responses[0];
   } catch (error) {
     const errorOutput = error.stderr?.toString() || error.stdout?.toString() || '';
-    try {
-      return JSON.parse(errorOutput);
-    } catch {
-      return { 
-        data: { message: errorOutput },
-        status: 400 
-      };
-    }
+    return JSON.parse(errorOutput);
   }
 }
 

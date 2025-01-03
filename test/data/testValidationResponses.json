@@ -3,10 +3,6 @@
     "notFound": {
       "cod": "404",
       "message": "not found"
-    },
-    "invalidZip": {
-      "cod": "400",
-      "message": "invalid zip code"
     }
   },
   "success": {

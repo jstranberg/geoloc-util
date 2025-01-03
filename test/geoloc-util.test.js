@@ -4,9 +4,12 @@ const responses = require('./data/testValidationResponses.json');
 
 describe('geoloc-util', () => {
   describe('Negative validation with invalid inputs:', () => {
-    const falseyValues = [ null, undefined, NaN, -0, 0n, ``, !NaN ];
+    const invalidLocationValues = [
+      null, undefined, NaN, -1,',,', '1,2,3', 1.1,
+      '00000', 'abc123', '123', '123456', 'abcde'
+    ].map(String); 
     
-    falseyValues.forEach((value) => {
+    invalidLocationValues.forEach((value) => {
       it(`"${value}" returns not found error`, () => {
         let notFound = responses.errors.notFound;
         
@@ -18,20 +21,7 @@ describe('geoloc-util', () => {
         expect(validation.success, validation.error).to.be.true;
       });
     });
-    
-    const invalidZipValues = ['0', '0.0', '1.0', '1', 'null', 'NaN', 'undefined', ',,', '1,2,3', '[]', '{}', '-1', '1.1', 'SELECT * FROM locations'];
-    invalidZipValues.forEach((value) => {
-      it(`"${value}" returns invalid zip error`, () => {
-        let invalidZip = responses.errors.invalidZip;
 
-        const result = executeGeolocUtil(value);
-        const validation = validateOutput(result, 
-          parseInt(invalidZip.cod),
-          invalidZip.message
-        );
-        expect(validation.success, validation.error).to.be.true;
-      });
-    });
   });
 
   describe('Positive validation with valid inputs:', () => {

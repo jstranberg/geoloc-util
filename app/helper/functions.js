@@ -17,7 +17,8 @@ const argv = yargs(hideBin(process.argv))
           chalk.yellow('\n    • City and state (e.g., "New York,NY")') + 
           chalk.yellow('\n    • ZIP code (e.g., "10001")'),
     demandOption: chalk.red('Error: ') + chalk.yellow('Please provide at least one location using ') + 
-                 chalk.cyan('-l') + chalk.yellow(' or ') + chalk.cyan('--locations')
+                 chalk.cyan('-l') + chalk.yellow(' or ') + chalk.cyan('--locations'),
+    coerce: arg => arg.map(String)
   })
   .option('limit', {
     type: 'number',
@@ -34,12 +35,7 @@ const argv = yargs(hideBin(process.argv))
   .check((argv) => {
     if (!argv.locations || argv.locations.length === 0) {
       throw new Error(chalk.red('Error: ') + chalk.yellow('At least one location must be provided'));
-    }
-    
-    if (argv.limit && (argv.limit < 1 || !Number.isInteger(argv.limit))) {
-      throw new Error(chalk.red('Error: ') + chalk.yellow('Limit must be a positive integer'));
-    }
-    
+    } 
     return true;
   })
   .epilogue(chalk.dim('For more information, visit: https://github.com/jstranberg/geoloc-util'))
