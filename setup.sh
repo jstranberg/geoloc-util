@@ -11,6 +11,21 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+# Check if Homebrew is installed (Mac only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if ! command -v brew &> /dev/null; then
+        echo "Homebrew is not installed. Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        
+        # Add Homebrew to PATH for M1 Macs if needed
+        if [[ -f "/opt/homebrew/bin/brew" ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
+    fi
+else
+    echo "Homebrew installation skipped (not on macOS)"
+fi
+
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
     echo "Node.js is not installed. Installing Node.js 18..."

@@ -1,25 +1,48 @@
 const axios = require('axios');
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
+const chalk = require('chalk');
 
 /**
  * Parses the command-line arguments using yargs
  * @returns {Object} The parsed command-line arguments
  */
 const argv = yargs(hideBin(process.argv))
-  .usage('Usage: $0 [options]')
+  .usage(chalk.cyan('\n🌎 Geolocation Utility') + 
+         chalk.white('\nUsage: $0 [options]'))
   .option('l', {
     alias: 'locations',
     type: 'array',
-    desc: 'The US location to search for (city name and state code divided by comma), or zip code',
-    optional: false
+    desc: chalk.white('The US location to search for:') + 
+          chalk.yellow('\n    • City and state (e.g., "New York,NY")') + 
+          chalk.yellow('\n    • ZIP code (e.g., "10001")'),
+    demandOption: chalk.red('Error: ') + chalk.yellow('Please provide at least one location using ') + 
+                 chalk.cyan('-l') + chalk.yellow(' or ') + chalk.cyan('--locations')
   })
   .option('limit', {
     type: 'number',
-    desc: 'The maximum number of locations to return in the response',
-    optional: true,
+    desc: chalk.white('Maximum number of locations to return'),
     default: 1
   })
+  .example(chalk.green('$0 -l "New York,NY"'), 
+          chalk.dim('Search for New York City'))
+  .example(chalk.green('$0 -l 10001'), 
+          chalk.dim('Search by ZIP code'))
+  .example(chalk.green('$0 --locations "San Francisco,CA" "New York,NY" "37604" "10001"'), 
+          chalk.dim('Get locations for multiple locations and ZIP codes'))
+  .wrap(null)
+  .check((argv) => {
+    if (!argv.locations || argv.locations.length === 0) {
+      throw new Error(chalk.red('Error: ') + chalk.yellow('At least one location must be provided'));
+    }
+    
+    if (argv.limit && (argv.limit < 1 || !Number.isInteger(argv.limit))) {
+      throw new Error(chalk.red('Error: ') + chalk.yellow('Limit must be a positive integer'));
+    }
+    
+    return true;
+  })
+  .epilogue(chalk.dim('For more information, visit: https://github.com/jstranberg/geoloc-util'))
   .argv;
 
 /**

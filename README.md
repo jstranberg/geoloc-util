@@ -2,12 +2,7 @@
 
 ## Prerequisites
 
-This utility requires a Mac or Linux machine with Homebrew installed.
-
-If you don't have Homebrew installed, you can get it from [brew.sh](https://brew.sh/), or run this command in a terminal:
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+This utility requires a Mac or Linux machine. 
 
 ## Installation
 
