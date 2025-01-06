@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   geoloc-util:
     container_name: geoloc-util

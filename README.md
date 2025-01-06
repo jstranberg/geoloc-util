@@ -21,13 +21,13 @@ export OPENWEATHER_API_KEY=your_api_key
 
 2. Create aliases for geoloc-util and geoloc-npm:
 ```bash
-alias geoloc-util='docker-compose run --rm geoloc-util'
-alias npm='docker-compose run --rm npm'
+alias geoloc-util='docker compose run --rm geoloc-util'
+alias npm='docker compose run --rm npm'
 ```
 
 3. Start the service:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 
