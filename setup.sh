@@ -33,7 +33,11 @@ nvm use 18
 echo "OPENWEATHER_API_KEY=$1" > .env
 
 # Install dependencies
-npm install
+npm install -g
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 echo "Setup complete! Your API key has been saved to .env"
 echo "Run 'npm run test' to validate the setup and run the test suite"

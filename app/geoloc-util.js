@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const { getCoordinatesByZip, getCoordinatesByLocation, argv } = require('./helper/functions');
 require('dotenv').config();
 

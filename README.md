@@ -30,7 +30,12 @@ geoloc-util -l "New York City,NY"
 
 Get geolocation for a ZIP code:
 ```bash
-geoloc-util -locations "10001"
+geoloc-util --locations "10001"
+```
+
+Get geolocations for multiple locations and ZIP codes:
+```bash
+geoloc-util --locations “Madison, WI” “12345” “Chicago, IL” “10001”
 ```
 
 ## Development
