@@ -11,57 +11,23 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# Check if Homebrew is installed (Mac only)
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    if ! command -v brew &> /dev/null; then
-        echo "Homebrew is not installed. Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        
-        # Add Homebrew to PATH for M1 Macs if needed
-        if [[ -f "/opt/homebrew/bin/brew" ]]; then
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-        fi
-    fi
-else
-    echo "Homebrew installation skipped (not on macOS)"
+# Check if NVM is installed
+if ! command -v nvm &> /dev/null; then
+    echo "NVM is not installed. Installing NVM..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    
+    # Load NVM
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 fi
 
-# Check if Node.js is installed
-if ! command -v node &> /dev/null; then
-    echo "Node.js is not installed. Installing Node.js 18..."
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS
-        brew install node@18
-        brew link node@18
-    else
-        # Linux (assuming Ubuntu/Debian)
-        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-    fi
-else
-    # Check Node.js version
-    NODE_VERSION=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
-    if [ "$NODE_VERSION" -lt 18 ]; then
-        echo "Node.js version is below 18. Installing Node.js 18..."
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            brew install node@18
-            brew link node@18
-        else
-            curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-        fi
-    fi
-fi
+# Install Node.js 18 using NVM
+echo "Installing Node.js 18 using NVM..."
+nvm install 18
+nvm use 18
 
-# Check if npm is installed
-if ! command -v npm &> /dev/null; then
-    echo "npm is not installed. Installing npm..."
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        brew install npm
-    else
-        sudo apt-get install -y npm
-    fi
-fi
+# npm is included with Node.js installation through NVM
 
 # Create .env file with API key
 echo "OPENWEATHER_API_KEY=$1" > .env

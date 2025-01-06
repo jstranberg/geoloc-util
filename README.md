@@ -15,10 +15,9 @@ chmod +x setup.sh
 ```bash
 sh setup.sh YOUR_OPENWEATHER_API_KEY
 ```
-
 This will:
-- Install Homebrew (if not already installed)
-- Install Node.js 18 (if not already installed)
+- Install NVM (if not already installed)
+- Install the latest stable version of Node.js 18 and npm (if not already installed)
 - Install all required dependencies
 - Configure your API key
 
