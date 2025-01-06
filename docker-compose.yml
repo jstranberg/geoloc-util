@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  geoloc-util:
+    container_name: geoloc-util
+    build: .
+    environment:
+      - OPENWEATHER_API_KEY
+    volumes:
+      - .:/app
+    entrypoint: ["geoloc-util"]
+
+  npm:
+    container_name: npm
+    build: .
+    environment:
+      - OPENWEATHER_API_KEY
+    volumes:
+      - .:/app
+    entrypoint: ["npm"]
