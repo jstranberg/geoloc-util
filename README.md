@@ -19,7 +19,7 @@ In a terminal, navigate to the root directory of this repository and run the fol
 export OPENWEATHER_API_KEY=your_api_key
 ```
 
-2. Create aliases for geoloc-util and geoloc-npm:
+2. Create aliases for geoloc-util and npm:
 ```bash
 alias geoloc-util='docker compose run --rm geoloc-util'
 alias npm='docker compose run --rm npm'
