@@ -19,17 +19,16 @@ In a terminal, navigate to the root directory of this repository and run the fol
 export OPENWEATHER_API_KEY=your_api_key
 ```
 
-2. Create aliases for geoloc-util and npm:
-```bash
-alias geoloc-util='docker compose run --rm geoloc-util'
-alias npm='docker compose run --rm npm'
-```
-
-3. Start the service:
+2. Start the service:
 ```bash
 docker compose up -d
 ```
 
+3. Create aliases for geoloc-util and npm:
+```bash
+alias geoloc-util='docker compose run --rm geoloc-util'
+alias npm='docker compose run --rm npm'
+```
 
 
 ### Method 2: Setup script
@@ -64,7 +63,7 @@ Get geolocations for multiple locations and ZIP codes:
 geoloc-util --locations "Madison, WI" "12345" "Chicago, IL" "10001"
 ```
 
-## Development
+## Integration Tests
 
 To run the full test suite:
 ```bash
