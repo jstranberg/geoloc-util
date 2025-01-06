@@ -8,7 +8,7 @@ This utility requires a Mac or Linux machine.
 
 There are two methods to install this utility:
 
-1. Use Docker, or
+1. Docker (recommended), or
 2. Run the setup script
 
 ### Method 1: Docker Installation
