@@ -6,11 +6,11 @@ services:
       - OPENWEATHER_API_KEY
     volumes:
       - .:/app
-    entrypoint: ["geoloc-util"]
 
   npm:
     container_name: npm
     build: .
+    working_dir: /app
     environment:
       - OPENWEATHER_API_KEY
     volumes:

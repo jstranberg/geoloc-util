@@ -2,18 +2,11 @@ FROM node:18-slim
 
 WORKDIR /app
 
-# Copy package files first for better caching
+# Copy package files and install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm install -g
 
-# Copy the rest of the application
+# Copy app source
 COPY . .
 
-# Install globally
-RUN npm link
-
-# Create a script to handle both geoloc-util and npm commands
-RUN echo '#!/bin/sh\nif [ "$1" = "npm" ]; then\n  exec "$@"\nelse\n  exec geoloc-util "$@"\nfi' > /usr/local/bin/entrypoint.sh && \
-    chmod +x /usr/local/bin/entrypoint.sh
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["node", "/app/app/geoloc-util.js"]
