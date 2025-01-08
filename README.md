@@ -6,20 +6,22 @@ This utility requires a Mac or Linux/Ubuntu machine.
 
 ## Installation
 
-In a terminal, run chmod and the setup script with your OpenWeather API key (no quotes):
+In a terminal, make the setup script executable:
 
 ```bash
 chmod +x setup.sh
 ```
 
-On Mac
+On Mac:
 ```bash
 sh setup.sh YOUR_OPENWEATHER_API_KEY
+source ~/.zshrc    
 ```
 
-On Linux/Ubuntu
+On Linux/Ubuntu:
 ```bash
 bash setup.sh YOUR_OPENWEATHER_API_KEY
+source ~/.bashrc  
 ```
 
 This will:
