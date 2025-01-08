@@ -2,36 +2,9 @@
 
 ## Prerequisites
 
-This utility requires a Mac or Linux machine. 
+This utility requires a Mac or Linux machine.
 
 ## Installation
-
-There are two methods to install this utility:
-
-1. Docker (recommended), or
-2. Run the setup script
-
-### Method 1: Docker Installation
-In a terminal, navigate to the root directory of this repository and run the following commands:
-
-1. Export your OpenWeather API key:
-```bash
-export OPENWEATHER_API_KEY=your_api_key
-```
-
-2. Start the service:
-```bash
-docker compose up -d
-```
-
-3. Create aliases for geoloc-util and npm:
-```bash
-alias geoloc-util='docker compose run --rm geoloc-util'
-alias npm='docker compose run --rm npm'
-```
-
-
-### Method 2: Setup script
 
 In a terminal, run chmod and the setup script with your OpenWeather API key (no quotes):
 
@@ -74,4 +47,3 @@ To run specific test suites:
 ```bash
 npm run test-negative  # Run negative validation tests
 npm run test-happy     # Run positive validation tests
-```
