@@ -18,7 +18,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# Detect OS
+# Detect OS and set profile file
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Create .zshrc if it doesn't exist (macOS default shell)
     if [ ! -f "$HOME/.zshrc" ]; then
@@ -28,18 +28,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     # For Linux, use .bashrc
     PROFILE_FILE="$HOME/.bashrc"
-fi
-
-# Install system dependencies
-echo "Installing system dependencies..."
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS
-    brew update
-    brew install curl build-essential
-else
-    # Linux
-    sudo apt-get update
-    sudo apt-get install -y curl build-essential
 fi
 
 # Install NVM
